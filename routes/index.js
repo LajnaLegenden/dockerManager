@@ -8,9 +8,21 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/test', (req, res, next) => {
-  Docker()
-  res.send("asdasd");
+router.get('/Images', async (req, res, next) => {
+  res.render('images', {
+    images: JSON.stringify(await Docker.getImages())
+  });
+});
+
+
+router.get('/Containers', async (req, res, next) => {
+  res.render('containers', {
+    containers: JSON.stringify(await Docker.getContainers())
+  });
+});
+
+router.get('/Container/:id', async (req, res, next) => {
+  res.send(await Docker.getContainerInfo(req.params.id));
 });
 
 module.exports = router;

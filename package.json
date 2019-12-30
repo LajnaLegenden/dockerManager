@@ -7,6 +7,7 @@
     "dev": "watchify -vd -p browserify-hmr -t vueify -e public/javascripts/main.js -o public/javascripts/bundle.js & nodemon ./bin/www"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "brfs": "^2.0.2",
     "browserify": "^16.5.0",
     "cookie-parser": "~1.4.4",

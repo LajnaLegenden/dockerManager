@@ -3,11 +3,16 @@
 
 <head>
   <title>{{title}}</title>
+  <link rel="stylesheet" href="/bs/css/bootstrap.min.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-  <div id="app">{{{body}}}</div>
+  <div id="app">
+    <main-nav></main-nav>
+    {{{body}}}
+  </div>
+  <script src="/bs/js/bootstrap.min.js"></script>
   <script src="/javascripts/bundle.js"></script>
 </body>
 
