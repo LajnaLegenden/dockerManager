@@ -4,6 +4,11 @@
     <td>{{image.RepoTags[0]}}</td>
     <td>{{this.created}}</td>
     <td>{{this.size}}</td>
+    <td>
+      <button v-on:click="createAndStartContainer()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </td>
   </tr>
 </template>
 
@@ -27,6 +32,12 @@ module.exports = {
       const i = Math.floor(Math.log(bytes) / Math.log(k));
 
       return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    },
+    createAndStartContainer() {
+      $.post({
+        url: "/image/create",
+        data: this.image.Config
+      });
     }
   },
   computed: {
